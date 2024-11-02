@@ -1,53 +1,69 @@
-extends Area2D
+extends CharacterBody2D
 
-signal hit
+# Code based on the DevWorm RPG Godot Tutorial, with a few Durheist modifications.
 
-@export var speed = 400 # How fast the player will move (pixels/sec).
-var screen_size # Size of the game window.
+const speed = 100
+var current_direction = "none"
 
 func _ready():
-	screen_size = get_viewport_rect().size
-	hide()
+	$AnimatedSprite2D.play("idle")
 
-func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
-	if Input.is_action_pressed(&"move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed(&"move_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed(&"move_down"):
-		velocity.y += 1
-	if Input.is_action_pressed(&"move_up"):
-		velocity.y -= 1
-
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play()
+func _physics_process(delta: float) -> void:
+	player_move(delta)	
+	
+func player_move(delta):
+	if Input.is_action_pressed("ui_right"):
+		current_direction = "right"
+		play_anim(1) # Play walk animation
+		velocity.x = speed
+		velocity.y = 0
+	elif Input.is_action_pressed("ui_left"):
+		current_direction = "left"
+		play_anim(1)
+		velocity.x = -speed
+		velocity.y = 0
+	elif Input.is_action_pressed("ui_down"):
+		current_direction = "down"
+		play_anim(1)
+		velocity.x = 0
+		velocity.y = speed
+	elif Input.is_action_pressed("ui_up"):
+		current_direction = "up"
+		play_anim(1)
+		velocity.x = 0
+		velocity.y = -speed
 	else:
-		$AnimatedSprite2D.stop()
+		play_anim(0)
+		velocity.x = 0 # If no key is pressed, player should not move.
+		velocity.y = 0
+	
+	move_and_slide()
 
-	position += velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
-
-	if velocity.x != 0:
-		$AnimatedSprite2D.animation = &"right"
-		$AnimatedSprite2D.flip_v = false
-		$Trail.rotation = 0
-		$AnimatedSprite2D.flip_h = velocity.x < 0
-	elif velocity.y != 0:
-		$AnimatedSprite2D.animation = &"up"
-		rotation = PI if velocity.y > 0 else 0
-
-
-func start(pos):
-	position = pos
-	rotation = 0
-	show()
-	$CollisionShape2D.disabled = false
-
-
-func _on_body_entered(_body):
-	hide() # Player disappears after being hit.
-	hit.emit()
-	# Must be deferred as we can't change physics properties on a physics callback.
-	$CollisionShape2D.set_deferred(&"disabled", true)
+func play_anim(movement):
+	var dir = current_direction
+	var anim = $AnimatedSprite2D
+	
+	if dir == "right":
+		anim.flip_h = false # Do not flip animation, faces right by default
+		if movement == 1:
+			anim.play("side_walk")
+		elif movement == 0:
+			anim.play("side_idle")
+	if dir == "left":
+		anim.flip_h = true # Flip animation, faces right by default
+		if movement == 1:
+			anim.play("side_walk")
+		elif movement == 0:
+			anim.play("side_idle")
+	if dir == "up":
+		anim.flip_h = false # Do not flip animation, faces right by default
+		if movement == 1:
+			anim.play("back_walk")
+		elif movement == 0:
+			anim.play("back_idle")
+	if dir == "down":
+		anim.flip_h = false # Do not flip animation, faces right by default
+		if movement == 1:
+			anim.play("front_walk")
+		elif movement == 0:
+			anim.play("front_idle")
