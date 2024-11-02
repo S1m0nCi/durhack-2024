@@ -28,5 +28,6 @@ func _on_detection_area_body_exited(body: Node2D) -> void:
 	# attempting to make a chase for a 
 	player = null
 	player_chase = false
+	player_track = true
 	# when player exits detection, can hide again.
 	# could be related to torchlight or more complicated.

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4ewkysjn817x"]
+
+[ext_resource type="PackedScene" uid="uid://cqhen150flkh7" path="res://scenes/guard.tscn" id="1_luk74"]
+[ext_resource type="PackedScene" uid="uid://br4p5ucte18on" path="res://scenes/player.tscn" id="2_ouhn5"]
+
+[sub_resource type="TileSet" id="TileSet_i2sli"]
+
+[node name="world" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_i2sli")
+format = 2
+
+[node name="guard" parent="." instance=ExtResource("1_luk74")]
+position = Vector2(142, 61)
+
+[node name="Player" parent="." instance=ExtResource("2_ouhn5")]

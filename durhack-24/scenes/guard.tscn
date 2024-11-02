@@ -221,31 +221,40 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jw134"]
-radius = 168.217
+radius = 67.2681
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_15ewq"]
-radius = 18.3848
+radius = 11.0
 
 [node name="guard" type="CharacterBody2D"]
+position = Vector2(213, 68)
 script = ExtResource("1_jlb12")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(3, -4)
-scale = Vector2(4.1875, 3.65625)
+position = Vector2(0, -8)
+scale = Vector2(2.125, 1.90625)
 sprite_frames = SubResource("SpriteFrames_v37q8")
 animation = &"idle_front"
+frame = 3
+frame_progress = 0.135704
 
 [node name="detectionArea" type="Area2D" parent="."]
+position = Vector2(559, 171)
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectionArea"]
-position = Vector2(-3, 7)
+position = Vector2(-559, -173)
 shape = SubResource("CircleShape2D_jw134")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 7)
+position = Vector2(-1, -1)
 shape = SubResource("CircleShape2D_15ewq")
+
+[node name="trackArea" type="Area2D" parent="."]
+position = Vector2(161, 315)
+collision_layer = 4
+collision_mask = 4
 
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]
