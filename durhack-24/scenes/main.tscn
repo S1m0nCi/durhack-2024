@@ -9113,7 +9113,19 @@ freeze = true
 position = Vector2(308.5, 446.5)
 shape = SubResource("RectangleShape2D_hxnb3")
 
+[node name="RigidBody2D3" type="RigidBody2D" parent="TileMap"]
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/RigidBody2D3"]
+position = Vector2(-142.5, 535)
+shape = SubResource("RectangleShape2D_c70pr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMap/RigidBody2D3"]
+position = Vector2(828.25, 504)
+shape = SubResource("RectangleShape2D_4g353")
+
 [node name="guard" parent="." instance=ExtResource("3_fhmdq")]
+position = Vector2(519, 75)
 
 [node name="Thief" parent="." instance=ExtResource("4_rmk2n")]
 position = Vector2(287, 534)
