@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 # Code based on the DevWorm RPG Godot Tutorial, with a few Durheist modifications.
@@ -5,15 +6,20 @@ extends CharacterBody2D
 const speed = 225
 var current_direction = "none"
 var caught = false
+var caught_valid = true
+var is_player = true
+
+var won = false
 
 func _ready():
 	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta: float) -> void:
 	if not caught:
+		print (position)
 		player_move(delta)
 	else:
-		pass
+		print ("Game Over")
 		
 func player_move(delta):
 	if Input.is_action_pressed("ui_right"):

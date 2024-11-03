@@ -1,7 +1,8 @@
-[gd_scene load_steps=74 format=3 uid="uid://dtx4rvdaqv622"]
+[gd_scene load_steps=75 format=3 uid="uid://dtx4rvdaqv622"]
 
 [ext_resource type="Texture2D" uid="uid://cjeb1bjex76mc" path="res://assets/tlc_gf.png" id="1_31xvp"]
 [ext_resource type="PackedScene" uid="uid://cqhen150flkh7" path="res://scenes/guard.tscn" id="3_fhmdq"]
+[ext_resource type="PackedScene" uid="uid://dncc7nou435pb" path="res://scenes/dino.tscn" id="4_4lyrw"]
 [ext_resource type="PackedScene" uid="uid://bk8w4vok5rryc" path="res://scenes/thief.tscn" id="4_rmk2n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ukl62"]
@@ -9104,6 +9105,10 @@ shape = SubResource("RectangleShape2D_ee42s")
 position = Vector2(724.5, -916)
 shape = SubResource("RectangleShape2D_l6mpl")
 
+[node name="CollisionShape2D68" type="CollisionShape2D" parent="TileMap/RigidBody2D"]
+position = Vector2(724.5, -916)
+shape = SubResource("RectangleShape2D_l6mpl")
+
 [node name="RigidBody2D2" type="RigidBody2D" parent="TileMap"]
 mass = 1000.0
 gravity_scale = 0.0
@@ -9142,3 +9147,6 @@ position = Vector2(295, 812)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(906, 840)
+
+[node name="Dino" parent="." instance=ExtResource("4_4lyrw")]
+position = Vector2(140, -854)

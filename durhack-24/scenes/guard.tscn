@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cqhen150flkh7"]
+[gd_scene load_steps=40 format=3 uid="uid://cqhen150flkh7"]
 
 [ext_resource type="Texture2D" uid="uid://cjt8ydc3np2sa" path="res://assets/mystic-forest-temp/characters/slime.png" id="1_314ub"]
 [ext_resource type="Script" path="res://guard.gd" id="1_jlb12"]
@@ -259,28 +259,28 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rn2dj"]
-radius = 8.0
-height = 64.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_unei5"]
-radius = 87.0
+radius = 143.056
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rn2dj"]
+radius = 7.0
+height = 21.9965
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f2kir"]
 
 [node name="guard" type="CharacterBody2D"]
 position = Vector2(0, 1)
+rotation = -0.00566891
 collision_layer = 5
 collision_mask = 5
 script = ExtResource("1_jlb12")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(4.00003, 6)
+rotation = 0.00512662
 scale = Vector2(0.287125, 0.21)
 sprite_frames = SubResource("SpriteFrames_v37q8")
 animation = &"front"
-
-[node name="BGHitBox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
-shape = SubResource("CapsuleShape2D_rn2dj")
 
 [node name="detectionArea" type="Area2D" parent="."]
 position = Vector2(559, 171)
@@ -296,8 +296,13 @@ collision_layer = 5
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaughtArea"]
-position = Vector2(0, -3)
+rotation = -1.54527
 shape = SubResource("CapsuleShape2D_rn2dj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -0.00180421
+shape = SubResource("CircleShape2D_f2kir")
+disabled = true
 
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]

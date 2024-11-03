@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dncc7nou435pb"]
+[gd_scene load_steps=7 format=3 uid="uid://dncc7nou435pb"]
 
+[ext_resource type="Script" path="res://dino.gd" id="1_5cspe"]
 [ext_resource type="Texture2D" uid="uid://ca4oyuo23wyae" path="res://assets/table_dino-removebg-preview.png" id="1_iubj2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xka03"]
@@ -24,6 +25,7 @@ radius = 18.0278
 radius = 21.0238
 
 [node name="Dino" type="CharacterBody2D"]
+script = ExtResource("1_5cspe")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -35,8 +37,10 @@ sprite_frames = SubResource("SpriteFrames_pnemp")
 position = Vector2(-15, -49)
 shape = SubResource("CircleShape2D_xbnhd")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="dinoWin" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dinoWin"]
 position = Vector2(-13, -48)
 shape = SubResource("CircleShape2D_ygcyu")
+
+[connection signal="body_entered" from="dinoWin" to="." method="_on_dino_win_body_entered"]
