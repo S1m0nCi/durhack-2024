@@ -45,3 +45,11 @@ shape = SubResource("RectangleShape2D_wb0e5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mwl2c")
 animation = &"front"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -150
+limit_top = -924
+limit_right = 910
+limit_bottom = 1072
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

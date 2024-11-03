@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Code based on the DevWorm RPG Godot Tutorial, with a few Durheist modifications.
 
-const speed = 100
+const speed = 225
 var current_direction = "none"
 
 func _ready():
