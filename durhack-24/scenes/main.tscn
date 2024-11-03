@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtx4rvdaqv622"]
+[gd_scene load_steps=6 format=3 uid="uid://dtx4rvdaqv622"]
 
 [ext_resource type="Texture2D" uid="uid://cjeb1bjex76mc" path="res://assets/tlc_gf.png" id="1_31xvp"]
-[ext_resource type="PackedScene" uid="uid://chfjvyv6ojyv8" path="res://scenes/thief.tscn" id="2_0ykbo"]
+[ext_resource type="PackedScene" uid="uid://cqhen150flkh7" path="res://scenes/guard.tscn" id="3_fhmdq"]
+[ext_resource type="PackedScene" uid="uid://bk8w4vok5rryc" path="res://scenes/thief.tscn" id="4_rmk2n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ukl62"]
 texture = ExtResource("1_31xvp")
@@ -8614,10 +8615,8 @@ texture_region_size = Vector2i(125, 125)
 69:124/0 = 0
 0:0/size_in_atlas = Vector2i(9, 16)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_u8u7x"]
-physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ukl62")
 
 [node name="world" type="Node2D"]
@@ -8627,8 +8626,10 @@ tile_set = SubResource("TileSet_u8u7x")
 format = 2
 layer_0/tile_data = PackedInt32Array(262165, 0, 0)
 
-[node name="Thief" parent="." instance=ExtResource("2_0ykbo")]
-position = Vector2(326, 928)
+[node name="guard" parent="." instance=ExtResource("3_fhmdq")]
+
+[node name="Thief" parent="." instance=ExtResource("4_rmk2n")]
+position = Vector2(287, 534)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(906, 840)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://b07f42b28qlkq"]
+[gd_scene load_steps=44 format=3 uid="uid://br4p5ucte18on"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_hvvif"]
 [ext_resource type="Texture2D" uid="uid://cbko1kxhougls" path="res://assets/mystic-forest-temp/characters/player.png" id="2_s66cn"]
