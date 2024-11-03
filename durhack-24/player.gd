@@ -46,24 +46,24 @@ func play_anim(movement):
 	if dir == "right":
 		anim.flip_h = false # Do not flip animation, faces right by default
 		if movement == 1:
-			anim.play("side_walk")
+			anim.play("side")
 		elif movement == 0:
-			anim.play("side_idle")
+			anim.play("side")
 	if dir == "left":
 		anim.flip_h = true # Flip animation, faces right by default
 		if movement == 1:
-			anim.play("side_walk")
+			anim.play("side")
 		elif movement == 0:
-			anim.play("side_idle")
+			anim.play("side")
 	if dir == "up":
 		anim.flip_h = false # Do not flip animation, faces right by default
 		if movement == 1:
-			anim.play("back_walk")
+			anim.play("back")
 		elif movement == 0:
-			anim.play("back_idle")
+			anim.play("back")
 	if dir == "down":
 		anim.flip_h = false # Do not flip animation, faces right by default
 		if movement == 1:
-			anim.play("front_walk")
+			anim.play("front")
 		elif movement == 0:
-			anim.play("idle")
+			anim.play("front")
