@@ -9057,22 +9057,32 @@ freeze = true
 position = Vector2(308.5, 446.5)
 shape = SubResource("RectangleShape2D_hxnb3")
 
-[node name="RigidBody2D3" type="RigidBody2D" parent="TileMap"]
-freeze = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/RigidBody2D3"]
-position = Vector2(-142.5, 535)
-shape = SubResource("RectangleShape2D_c70pr")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMap/RigidBody2D3"]
-position = Vector2(828.25, 504)
-shape = SubResource("RectangleShape2D_4g353")
-
 [node name="guard" parent="." instance=ExtResource("3_fhmdq")]
 position = Vector2(519, 75)
 
+[node name="guard2" parent="." instance=ExtResource("3_fhmdq")]
+position = Vector2(-1, 171)
+
+[node name="guard3" parent="." instance=ExtResource("3_fhmdq")]
+position = Vector2(593, 577)
+
+[node name="guard4" parent="." instance=ExtResource("3_fhmdq")]
+position = Vector2(267, -3)
+
+[node name="guard5" parent="." instance=ExtResource("3_fhmdq")]
+position = Vector2(-49, -740)
+
+[node name="guard6" parent="." instance=ExtResource("3_fhmdq")]
+position = Vector2(691, -575)
+
+[node name="guard7" parent="." instance=ExtResource("3_fhmdq")]
+position = Vector2(327, -876)
+
+[node name="guard8" parent="." instance=ExtResource("3_fhmdq")]
+position = Vector2(307, -389)
+
 [node name="Thief" parent="." instance=ExtResource("4_rmk2n")]
-position = Vector2(287, 534)
+position = Vector2(295, 812)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(906, 840)

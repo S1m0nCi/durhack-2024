@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://dncc7nou435pb"]
+
+[ext_resource type="Texture2D" uid="uid://ca4oyuo23wyae" path="res://assets/table_dino-removebg-preview.png" id="1_iubj2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xka03"]
+atlas = ExtResource("1_iubj2")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pnemp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xka03")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xbnhd"]
+radius = 18.0278
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ygcyu"]
+radius = 21.0238
+
+[node name="Dino" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 1)
+sprite_frames = SubResource("SpriteFrames_pnemp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-15, -49)
+shape = SubResource("CircleShape2D_xbnhd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-13, -48)
+shape = SubResource("CircleShape2D_ygcyu")

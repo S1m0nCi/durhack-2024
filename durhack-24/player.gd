@@ -4,13 +4,17 @@ extends CharacterBody2D
 
 const speed = 225
 var current_direction = "none"
+var caught = false
 
 func _ready():
 	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta: float) -> void:
-	player_move(delta)	
-	
+	if not caught:
+		player_move(delta)
+	else:
+		pass
+		
 func player_move(delta):
 	if Input.is_action_pressed("ui_right"):
 		current_direction = "right"

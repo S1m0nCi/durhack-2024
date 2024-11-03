@@ -259,12 +259,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_unei5"]
-radius = 87.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rn2dj"]
 radius = 8.0
 height = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_unei5"]
+radius = 87.0
 
 [node name="guard" type="CharacterBody2D"]
 position = Vector2(0, 1)
@@ -278,6 +278,10 @@ scale = Vector2(0.287125, 0.21)
 sprite_frames = SubResource("SpriteFrames_v37q8")
 animation = &"front"
 
+[node name="BGHitBox" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("CapsuleShape2D_rn2dj")
+
 [node name="detectionArea" type="Area2D" parent="."]
 position = Vector2(559, 171)
 collision_layer = 4
@@ -287,14 +291,14 @@ collision_mask = 4
 position = Vector2(-559, -173)
 shape = SubResource("CircleShape2D_unei5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CaughtArea" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaughtArea"]
 position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_rn2dj")
 
-[node name="trackArea" type="Area2D" parent="."]
-position = Vector2(161, 315)
-collision_layer = 4
-collision_mask = 4
-
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="CaughtArea" to="." method="_on_caught_area_body_entered"]
