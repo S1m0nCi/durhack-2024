@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://dtx4rvdaqv622"]
+[gd_scene load_steps=74 format=3 uid="uid://dtx4rvdaqv622"]
 
 [ext_resource type="Texture2D" uid="uid://cjeb1bjex76mc" path="res://assets/tlc_gf.png" id="1_31xvp"]
 [ext_resource type="PackedScene" uid="uid://cqhen150flkh7" path="res://scenes/guard.tscn" id="3_fhmdq"]
@@ -8796,6 +8796,30 @@ radius = 21.6333
 [sub_resource type="CircleShape2D" id="CircleShape2D_uykm3"]
 radius = 22.561
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5esw"]
+size = Vector2(163, 450)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ijim3"]
+size = Vector2(167.5, 441.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nid2"]
+size = Vector2(23.5, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdi4a"]
+size = Vector2(24.5, 121.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wuybi"]
+size = Vector2(29, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fyuv3"]
+size = Vector2(17, 82.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ee42s"]
+size = Vector2(67.5, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6mpl"]
+size = Vector2(77, 24)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxnb3"]
 size = Vector2(485, 49)
 
@@ -9047,6 +9071,38 @@ shape = SubResource("CircleShape2D_i2t2j")
 [node name="CollisionShape2D59" type="CollisionShape2D" parent="TileMap/RigidBody2D"]
 position = Vector2(793, -98)
 shape = SubResource("CircleShape2D_uykm3")
+
+[node name="CollisionShape2D60" type="CollisionShape2D" parent="TileMap/RigidBody2D"]
+position = Vector2(62.5, -275)
+shape = SubResource("RectangleShape2D_a5esw")
+
+[node name="CollisionShape2D61" type="CollisionShape2D" parent="TileMap/RigidBody2D"]
+position = Vector2(566.25, -283.75)
+shape = SubResource("RectangleShape2D_ijim3")
+
+[node name="CollisionShape2D62" type="CollisionShape2D" parent="TileMap/RigidBody2D"]
+position = Vector2(-203.75, 344)
+shape = SubResource("RectangleShape2D_1nid2")
+
+[node name="CollisionShape2D63" type="CollisionShape2D" parent="TileMap/RigidBody2D"]
+position = Vector2(891.25, 99.25)
+shape = SubResource("RectangleShape2D_hdi4a")
+
+[node name="CollisionShape2D64" type="CollisionShape2D" parent="TileMap/RigidBody2D"]
+position = Vector2(-201.5, 135.5)
+shape = SubResource("RectangleShape2D_wuybi")
+
+[node name="CollisionShape2D65" type="CollisionShape2D" parent="TileMap/RigidBody2D"]
+position = Vector2(900.5, 308.25)
+shape = SubResource("RectangleShape2D_fyuv3")
+
+[node name="CollisionShape2D66" type="CollisionShape2D" parent="TileMap/RigidBody2D"]
+position = Vector2(-59.75, -914)
+shape = SubResource("RectangleShape2D_ee42s")
+
+[node name="CollisionShape2D67" type="CollisionShape2D" parent="TileMap/RigidBody2D"]
+position = Vector2(724.5, -916)
+shape = SubResource("RectangleShape2D_l6mpl")
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="TileMap"]
 mass = 1000.0
