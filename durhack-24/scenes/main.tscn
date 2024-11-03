@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtx4rvdaqv622"]
+[gd_scene load_steps=8 format=3 uid="uid://dtx4rvdaqv622"]
 
 [ext_resource type="Texture2D" uid="uid://cjeb1bjex76mc" path="res://assets/tlc_gf.png" id="1_31xvp"]
 [ext_resource type="PackedScene" uid="uid://cqhen150flkh7" path="res://scenes/guard.tscn" id="3_fhmdq"]
@@ -8622,6 +8622,9 @@ sources/0 = SubResource("TileSetAtlasSource_ukl62")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4s0w"]
 size = Vector2(578.5, 41.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxnb3"]
+size = Vector2(470.5, 49)
+
 [node name="world" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -8630,11 +8633,22 @@ format = 2
 layer_0/tile_data = PackedInt32Array(262165, 0, 0)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="TileMap"]
+mass = 1000.0
 gravity_scale = 0.0
+freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/RigidBody2D"]
 position = Vector2(309.75, 306.75)
 shape = SubResource("RectangleShape2D_i4s0w")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="TileMap"]
+mass = 1000.0
+gravity_scale = 0.0
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/RigidBody2D2"]
+position = Vector2(315.75, 446.5)
+shape = SubResource("RectangleShape2D_hxnb3")
 
 [node name="guard" parent="." instance=ExtResource("3_fhmdq")]
 
